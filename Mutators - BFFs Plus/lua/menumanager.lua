@@ -1,0 +1,1 @@
+Announcer:AddHostMod("BFFs Plus, Special enemies are replaced with others, normal enemies are replaced with Medic")
