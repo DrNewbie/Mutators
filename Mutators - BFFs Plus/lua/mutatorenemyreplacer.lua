@@ -2,6 +2,7 @@ Hooks:Add("LocalizationManagerPostInit", "SafeHousePlus_loc", function(loc)
 	LocalizationManager:add_localized_strings({
 		["mutator_medidozer"] = "BFFs Plus",
 		["mutator_medidozer_desc"] = "Special enemies are replaced with others, normal enemies are replaced with Medic",
+		["mutator_specials_override_phalanx"] = "Phalanx",
 	})
 end)
 
@@ -77,6 +78,11 @@ function MutatorMediDozer:setup_options_gui(node)
 			_meta = "option",
 			text_id = "mutator_specials_override_spooc",
 			value = "spooc"
+		},
+		{
+			_meta = "option",
+			text_id = "mutator_specials_override_phalanx",
+			value = "phalanx"
 		}
 	}
 	local new_item = node:create_item(data_node, params)
@@ -111,7 +117,11 @@ function MutatorMediDozer:modify_unit_categories(group_ai_tweak, difficulty_inde
 		shield = 0,
 		medic = math.huge
 	}
-	group_ai_tweak.special_unit_spawn_limits[self:get_override_enemy()] = math.huge
+	if self:get_override_enemy() == "phalanx" then
+		group_ai_tweak.special_unit_spawn_limits.shield = math.huge
+	else
+		group_ai_tweak.special_unit_spawn_limits[self:get_override_enemy()] = math.huge
+	end
 	group_ai_tweak.unit_categories.medic_R870 = {
 		unit_types = {
 			america = {
@@ -145,6 +155,7 @@ function MutatorMediDozer:modify_unit_categories(group_ai_tweak, difficulty_inde
 		taser = "CS_tazer",
 		spooc = "spooc",
 		shield = "FBI_shield",
+		phalanx = "Phalanx_minion"
 	}
 	for group, units_data in pairs(group_ai_tweak.unit_categories) do
 		if units_data.special_type then
