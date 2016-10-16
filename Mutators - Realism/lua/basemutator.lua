@@ -1,4 +1,4 @@
-Hooks:Add("LocalizationManagerPostInit", "SafeHousePlus_loc", function(loc)
+Hooks:Add("LocalizationManagerPostInit", "MutatorRealism_loc", function(loc)
 	LocalizationManager:add_localized_strings({
 		["mutator_realism"] = "Realism",
 		["mutator_realism_desc"] = "Outlines and HUD are disabled",
