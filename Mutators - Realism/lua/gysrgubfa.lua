@@ -1,4 +1,4 @@
-_G._tmp_mutator_saving = _G._tmp_mutator_saving or {}
+_G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
 Hooks:PostHook(HUDManager, "set_enabled", "MutatorRealismBlockEnable", function(hudd, ...)
 	if MutatorRealism and TMP_mutator_saving.data and TMP_mutator_saving.data.MutatorRealism then
