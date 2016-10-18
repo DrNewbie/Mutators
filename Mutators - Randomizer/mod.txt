@@ -1,6 +1,6 @@
 {
 	"name" : "Mutators - Randomizer",
-	"description" : " ",
+	"description" : "Your loadout will be random.",
 	"author" : "Dr_Newbie",
 	"contact" : "",
 	"version" : "1",
