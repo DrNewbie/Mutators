@@ -99,19 +99,14 @@ MutatorRandomizer_Data.Loaded = false
 if MutatorRandomizer_Data and TMP_mutator_saving.data and TMP_mutator_saving.data.MutatorRandomizer and not MutatorRandomizer_Data.Loaded then
 	MutatorRandomizer_Data.Loaded = true
 	math.randomseed(os.time())
-	if math.random(1, 20) ~= 7 then
-		local _file = io.open(MutatorRandomizer_Data.DataPath, "r")
-		if not _file then
-		
-		else
-			MutatorRandomizer_Data.Possible_Data = json.decode(_file:read("*all"))
-			_file:close()
-		end
-		_file = nil
+	local _file = io.open(MutatorRandomizer_Data.DataPath, "r")
+	if not _file then
+		MutatorRandomizer_Data.Possible_Data = MutatorRandomizer_Data:Data_Generator()	
+	else
+		MutatorRandomizer_Data.Possible_Data = json.decode(_file:read("*all"))
+		_file:close()
 	end
-	if not MutatorRandomizer_Data.Possible_Data then
-		MutatorRandomizer_Data.Possible_Data = MutatorRandomizer_Data:Data_Generator()
-	end
+	_file = nil
 	if MutatorRandomizer_Data.Possible_Data then
 		local _selected = MutatorRandomizer_Data.Possible_Data[math.random(MutatorRandomizer_Data.Possible_Data_Size)]
 		if _selected and Global.game_settings and Global.game_settings.level_id then
