@@ -43,32 +43,32 @@ function MutatorRandomizer_Data:Data_Generator()
 		local _primary_selected_factory_data = _tweak_data_factory[_primary_selected_factory_id].uses_parts
 		local _secondary_selected_factory_data = _tweak_data_factory[_secondary_selectedfactory_id].uses_parts
 		local _primary_mods, _secondary_mods, _used = {}, {}, {}
+		local _added = 0
 		for _, _factory_name in pairs(_primary_selected_factory_data) do
-			if table.size(_primary_mods) >= #_primary_selected_factory_data then
+			if _added >= #_primary_selected_factory_data then
 				break
 			end
 			local _dd = _primary_selected_factory_data[math.random(#_primary_selected_factory_data)]
 			local _tt = _tweak_data_factory.parts[_dd].type
-			if _used[_tt] then
-			
-			else
+			if not _used[_tt] then
 				_used[_tt] = true
+				_primary_mods[#_primary_mods+1] = _dd
 			end
-			_primary_mods[#_primary_mods+1] = _dd
+			_added = _added + 1
 		end
 		_used = {}
+		_added = 0
 		for _, _factory_name in pairs(_secondary_selected_factory_data) do
-			if table.size(_secondary_mods) >= #_secondary_selected_factory_data then
+			if _added >= #_secondary_selected_factory_data then
 				break
 			end
 			local _dd = _secondary_selected_factory_data[math.random(#_secondary_selected_factory_data)]
 			local _tt = _tweak_data_factory.parts[_dd].type
-			if _used[_tt] then
-			
-			else
+			if not _used[_tt] then
 				_used[_tt] = true
+				_secondary_mods[#_secondary_mods+1] = _dd
 			end
-			_secondary_mods[#_secondary_mods+1] = _dd
+			_added = _added + 1
 		end
 		local _armor_selected = _armor_list[math.random(#_armor_list)]
 		local _deployable_selected = _deployable_list[math.random(#_deployable_list)]
