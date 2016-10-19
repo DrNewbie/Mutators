@@ -120,3 +120,24 @@ if MutatorRandomizer_Data and TMP_mutator_saving.data and TMP_mutator_saving.dat
 		end
 	end
 end
+
+function BlackMarketManager:forced_melee()
+	local level_data = tweak_data.levels[managers.job:current_level_id()]
+	return level_data and level_data.force_equipment and level_data.force_equipment.melee
+end
+
+function BlackMarketManager:equipped_melee_weapon()
+	local forced_melee = self:forced_melee()
+	if forced_melee then
+		return forced_melee
+	end
+	local melee_weapon
+	for melee_weapon_id, data in pairs(tweak_data.blackmarket.melee_weapons) do
+		melee_weapon = Global.blackmarket_manager.melee_weapons[melee_weapon_id]
+		if melee_weapon.equipped and melee_weapon.unlocked then
+			return melee_weapon_id
+		end
+	end
+	self:aquire_default_weapons()
+	return self._defaults.melee_weapon
+end
