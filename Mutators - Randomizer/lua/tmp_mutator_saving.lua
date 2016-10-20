@@ -1,7 +1,9 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
 if RequiredScript == "lib/managers/menumanager" then
-	Announcer:AddHostMod("Zero Down , You will directly go to custody when you down")
+	if MutatorRandomizer_Data and TMP_mutator_saving.data and TMP_mutator_saving.data.MutatorRandomizer then
+		Announcer:AddHostMod("Zero Down , You will directly go to custody when you down")
+	end
 end
 
 if RequiredScript == "lib/managers/localizationmanager" then
