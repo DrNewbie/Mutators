@@ -107,6 +107,11 @@ function MutatorMediDozer:setup_options_gui(node)
 			_meta = "option",
 			text_id = "mutator_specials_override_phalanx",
 			value = "phalanx"
+		},
+		{
+			_meta = "option",
+			text_id = "mutator_specials_override_medic",
+			value = "medic"
 		}
 	}
 	local new_item = node:create_item(data_node, params)
@@ -147,6 +152,11 @@ function MutatorMediDozer:setup_options_gui(node)
 			_meta = "option",
 			text_id = "mutator_specials_override_phalanx",
 			value = "phalanx"
+		},
+		{
+			_meta = "option",
+			text_id = "mutator_specials_override_medic",
+			value = "medic"
 		}
 	}
 	local new_item = node:create_item(data_node, params)
