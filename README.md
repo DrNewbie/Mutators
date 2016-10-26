@@ -4,6 +4,9 @@ http://downloads.lastbullet.net/17864
 ###Hardline Breakout
 http://downloads.lastbullet.net/14656
 
+###Quick-Fix
+http://downloads.lastbullet.net/17940
+
 ###Professional
 http://downloads.lastbullet.net/17894
 
