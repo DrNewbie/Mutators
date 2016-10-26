@@ -3,7 +3,7 @@
 	"description" : "Special enemies are replaced with others, normal enemies are replaced with Medic",
 	"author" : "Dr_Newbie",
 	"contact" : "",
-	"version" : "2",
+	"version" : "3",
 	"libraries" : [
 		{
 			"display_name" : "Announcer",
