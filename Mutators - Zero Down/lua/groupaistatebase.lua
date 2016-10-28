@@ -3,7 +3,7 @@ _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 TMP_mutator_saving.data = TMP_mutator_saving.data or {}
 
 Hooks:PostHook(GroupAIStateBase, "report_criminal_downed", "MutatorZeroDown_report_criminal_downed_Init", function(gab, unit, ...)
-	if MutatorZeroDown and TMP_mutator_saving.data and TMP_mutator_saving.data.MutatorZeroDown then
+	if TMP_mutator_saving:Is_This_Enable("MutatorZeroDown") then
 		local _peer = managers.network:session():peer_by_unit(unit)
 		if _peer then
 			if _peer:id() == 1 then

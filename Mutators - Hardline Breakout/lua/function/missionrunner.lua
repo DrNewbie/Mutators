@@ -1,7 +1,7 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
 Hooks:PostHook(DialogManager, "queue_dialog", "MutatorHardlineBreakout_missionrunner", function(dialog, id, ...)
-	if not MutatorHardlineBreakout or not TMP_mutator_saving.data or not TMP_mutator_saving.data.MutatorHardlineBreakout then
+	if not TMP_mutator_saving:Is_This_Enable("MutatorHardlineBreakout") then
 		return
 	end
 	local level_id = managers.job:current_level_id()
@@ -41,6 +41,10 @@ Hooks:PostHook(DialogManager, "queue_dialog", "MutatorHardlineBreakout_missionru
 		if managers.mission:HLBOGETRUNONCE() == -1 then
 			managers.mission:HLBOSETRUNONCE(-2)
 			managers.mission:HLBOSET(3)
+			if level_id == "arm_fac" or level_id == "arm_par" or level_id == "arm_hcm" or 
+			arm_cro == "arm_fac" or level_id == "arm_und" or level_id == "arm_for" then
+				managers.mission:HLBOSET(1)			
+			end
 		end
 	end
 end)

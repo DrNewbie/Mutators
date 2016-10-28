@@ -2,7 +2,7 @@ _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
 function _boolsomething()
 	if Utils:IsInHeist() then
-		if MutatorHardlineBreakout and TMP_mutator_saving.data and TMP_mutator_saving.data.MutatorHardlineBreakout and managers.mission:HLBOGET() > 0 then
+		if TMP_mutator_saving:Is_This_Enable("MutatorHardlineBreakout") and managers.mission:HLBOGET() > 0 then
 			return true
 		end
 	end

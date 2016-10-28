@@ -1,7 +1,7 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
 if RequiredScript == "lib/managers/menumanager" then
-	if MutatorsProfessional and TMP_mutator_saving.data and TMP_mutator_saving.data.MutatorsProfessional then
+	if TMP_mutator_saving:Is_This_Enable("MutatorsProfessional") then
 		Announcer:AddHostMod("Professional , You can't restart")
 	end
 end
@@ -27,6 +27,16 @@ if RequiredScript == "lib/managers/localizationmanager" then
 			_file:write(json.encode(self.data))
 			_file:close()
 		end
+	end
+	
+	function TMP_mutator_saving:Is_This_Enable(mutator_id)
+		local _MM = managers.mutators:get_mutator_from_id(mutator_id) or nil
+		if _MM and TMP_mutator_saving.data and TMP_mutator_saving.data[mutator_id] then
+			return true
+		elseif managers.mutators:is_mutator_active(_MM) then
+			return true
+		end
+		return false
 	end
 end
 

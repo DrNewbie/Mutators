@@ -1,6 +1,9 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
 if RequiredScript == "lib/managers/menumanager" then
+	if TMP_mutator_saving:Is_This_Enable("MutatorQuickFix") then
+		Announcer:AddHostMod("Quick-Fix, Decrease Medic cooldown. The more he saved, the less he required.")
+	end
 end
 
 if RequiredScript == "lib/managers/localizationmanager" then

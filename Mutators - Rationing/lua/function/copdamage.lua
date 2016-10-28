@@ -1,4 +1,9 @@
+_G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
+
 Hooks:PostHook(CopDamage, "init", "MutatorRationing_CopDamage_init", function(copp, ...)
+	if not TMP_mutator_saving:Is_This_Enable("MutatorRationing") then
+		return
+	end
 	copp:set_pickup(nil)
 end )
 
@@ -12,6 +17,9 @@ local Mutator_DropAmmoChance = {
 }
 
 Hooks:PostHook(CopDamage, "die", "MutatorRationing_CopDamage_die", function(copp, ...)
+	if not TMP_mutator_saving:Is_This_Enable("MutatorRationing") then
+		return
+	end
 	if copp._unit:base()._tweak_table == "tank" then
 		if LuaNetworking:IsMultiplayer() and LuaNetworking:IsHost() then
 			Mutator_DozersKilledSinceAmmo = Mutator_DozersKilledSinceAmmo + 1
