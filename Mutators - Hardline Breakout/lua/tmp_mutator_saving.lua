@@ -48,3 +48,13 @@ if RequiredScript == "lib/managers/mutatorsmanager" then
 		TMP_mutator_saving:Save()
 	end )
 end
+
+Hooks:Add("MenuManagerOnOpenMenu", "TMP_mutator_saving_MenuManagerOnOpenMenu", function(menu_manager, menu, ...)
+	if menu == "menu_main" then
+		local mm = managers.mutators:mutators() or {}
+		for _, _mutator in ipairs(mm) do
+			TMP_mutator_saving.data[tostring(_mutator:id())] = _mutator:is_enabled()
+		end
+		TMP_mutator_saving:Save()
+	end
+end)

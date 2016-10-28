@@ -3,7 +3,7 @@
 	"description" : " ",
 	"author" : "Dr_Newbie",
 	"contact" : "",
-	"version" : "6",
+	"version" : "7",
 	"libraries" : [
 		{
 			"display_name" : "Announcer",

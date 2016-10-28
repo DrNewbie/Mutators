@@ -38,13 +38,23 @@ if RequiredScript == "lib/managers/localizationmanager" then
 		end
 		return false
 	end
+	
+	function TMP_mutator_saving:Pre_Save()
+		local mm = managers.mutators:mutators() or {}
+		for _, _mutator in ipairs(mm) do
+			TMP_mutator_saving.data[tostring(_mutator:id())] = _mutator:is_enabled()
+		end
+	end
 end
 
 if RequiredScript == "lib/managers/mutatorsmanager" then
 	Hooks:PostHook(MutatorsManager, "set_enabled", "TMP_mutator_saving_set_enabled", function(mm, ...)
-		for _, _mutator in ipairs(mm:mutators()) do
-			TMP_mutator_saving.data[tostring(_mutator:id())] = _mutator:is_enabled()
-		end
-		TMP_mutator_saving:Save()
+		TMP_mutator_saving:Pre_Save()
 	end )
 end
+
+Hooks:Add("MenuManagerOnOpenMenu", "TMP_mutator_saving_MenuManagerOnOpenMenu", function(menu_manager, menu, ...)
+	if menu == "menu_main" then
+		TMP_mutator_saving:Pre_Save()
+	end
+end)
