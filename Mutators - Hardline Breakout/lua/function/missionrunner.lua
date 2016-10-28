@@ -40,10 +40,11 @@ Hooks:PostHook(DialogManager, "queue_dialog", "MutatorHardlineBreakout_missionru
 		end
 		if managers.mission:HLBOGETRUNONCE() == -1 then
 			managers.mission:HLBOSETRUNONCE(-2)
-			managers.mission:HLBOSET(3)
 			if level_id == "arm_fac" or level_id == "arm_par" or level_id == "arm_hcm" or 
-			arm_cro == "arm_fac" or level_id == "arm_und" or level_id == "arm_for" then
-				managers.mission:HLBOSET(1)			
+			level_id == "arm_cro" or level_id == "arm_und" or level_id == "arm_for" then
+				managers.mission:HLBOSET(1)
+			else
+				managers.mission:HLBOSET(3)
 			end
 		end
 	end
