@@ -41,6 +41,7 @@ if RequiredScript == "lib/managers/localizationmanager" then
 		for _, _mutator in ipairs(mm) do
 			TMP_mutator_saving.data[tostring(_mutator:id())] = _mutator:is_enabled()
 		end
+		self:Save()
 	end
 end
 
