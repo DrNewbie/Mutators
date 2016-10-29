@@ -1,7 +1,7 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
 Hooks:PostHook(DialogManager, "queue_dialog", "MutatorHardlineBreakout_missionrunner", function(dialog, id, ...)
-	if not TMP_mutator_saving:Is_This_Enable("MutatorHardlineBreakout") then
+	if not TMP_mutator_saving:Is_This_Enable("MutatorHardlineBreakout", MutatorHardlineBreakout) then
 		return
 	end
 	local level_id = managers.job:current_level_id()

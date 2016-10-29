@@ -4,7 +4,7 @@ if not tweak_data or not tweak_data.narrative or not tweak_data.narrative._jobs_
 	return	
 end
 
-local _bool4onoff = TMP_mutator_saving:Is_This_Enable("MutatorsProfessional")
+local _bool4onoff = TMP_mutator_saving:Is_This_Enable("MutatorsProfessional", MutatorsProfessional)
 for _, _job_name in ipairs(tweak_data.narrative._jobs_index) do
 	if _bool4onoff then
 		tweak_data.narrative.jobs[_job_name].professional = true

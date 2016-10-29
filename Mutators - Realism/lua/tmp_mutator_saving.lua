@@ -26,8 +26,13 @@ if RequiredScript == "lib/managers/localizationmanager" then
 		end
 	end
 	
-	function TMP_mutator_saving:Is_This_Enable(mutator_id)
-		local _MM = managers.mutators:get_mutator_from_id(mutator_id) or nil
+	function TMP_mutator_saving:Is_This_Enable(mutator_id, mm)
+		local _MM = nil
+		if mm then
+			_MM = mm
+		elseif managers.mutators then
+			_MM = managers.mutators:get_mutator_from_id(mutator_id) or nil
+		end
 		if _MM and TMP_mutator_saving.data and TMP_mutator_saving.data[mutator_id] then
 			return true
 		elseif managers.mutators:is_mutator_active(_MM) then
