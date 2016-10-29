@@ -1,4 +1,4 @@
-Hooks:PostHook(MutatorItem, "init", "MutatorTest", function(mm, parent_panel, mutator, index)
+Hooks:PostHook(MutatorItem, "init", "MutatorZeroDown_Icon", function(mm, parent_panel, mutator, index)
 	if tostring(mutator:id()) == "MutatorZeroDown" then
 		mm._icon = mm._icon_panel:bitmap({
 			name = "icon",
