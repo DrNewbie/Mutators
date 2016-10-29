@@ -3,7 +3,7 @@
 	"description" : "(CREEPS Expand)",
 	"author" : "Dr_Newbie",
 	"contact" : "",
-	"version" : "1",
+	"version" : "10",
 	"libraries" : [
 		{
 			"display_name" : "Announcer",

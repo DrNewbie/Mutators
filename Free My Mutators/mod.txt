@@ -3,7 +3,7 @@
 	"description":"Allow you get achievement and other else during Mutators",
 	"author":"Dr_Newbie",
 	"contact":" ",
-	"version":"1",
+	"version":"10",
 	"hooks":
 	[
 		{"hook_id":"lib/managers/achievmentmanager", "script_path":"lua/achievmentmanager.lua"},
