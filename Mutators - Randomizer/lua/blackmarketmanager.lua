@@ -96,7 +96,7 @@ function MutatorRandomizer_Data:Data_Generator()
 end
 
 MutatorRandomizer_Data.Loaded = false
-if TMP_mutator_saving:Is_This_Enable("MutatorRandomizer_Data") and not MutatorRandomizer_Data.Loaded then
+if TMP_mutator_saving:Is_This_Enable("MutatorRandomizer", MutatorRandomizer) and not MutatorRandomizer_Data.Loaded then
 	MutatorRandomizer_Data.Loaded = true
 	math.randomseed(os.time())
 	local _file = io.open(MutatorRandomizer_Data.DataPath, "r")
