@@ -1,11 +1,5 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
-if RequiredScript == "lib/managers/menumanager" then
-	if TMP_mutator_saving:Is_This_Enable("MutatorZeroDown") then
-		Announcer:AddHostMod("Zero Down , You will directly go to custody when you down")
-	end
-end
-
 if RequiredScript == "lib/managers/localizationmanager" then
 	TMP_mutator_saving.ModPath = ModPath
 	TMP_mutator_saving.SaveFile = TMP_mutator_saving.SaveFile or SavePath .. "tmp_mutator_saving.txt"
@@ -36,10 +30,12 @@ if RequiredScript == "lib/managers/localizationmanager" then
 		elseif managers.mutators then
 			_MM = managers.mutators:get_mutator_from_id(mutator_id) or nil
 		end
-		if _MM and TMP_mutator_saving.data and TMP_mutator_saving.data[mutator_id] then
-			return true
-		elseif managers.mutators:is_mutator_active(_MM) then
-			return true
+		if _MM then
+			if TMP_mutator_saving.data and TMP_mutator_saving.data[mutator_id] then
+				return true
+			elseif managers.mutators and managers.mutators:is_mutator_active(_MM) then
+				return true
+			end
 		end
 		return false
 	end
@@ -50,6 +46,10 @@ if RequiredScript == "lib/managers/localizationmanager" then
 			TMP_mutator_saving.data[tostring(_mutator:id())] = _mutator:is_enabled()
 		end
 		self:Save()
+	end
+	
+	if TMP_mutator_saving:Is_This_Enable("MutatorZeroDown", MutatorZeroDown) then
+		Announcer:AddHostMod("Zero Down , You will directly go to custody when you down")
 	end
 end
 

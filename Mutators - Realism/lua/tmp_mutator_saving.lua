@@ -33,10 +33,12 @@ if RequiredScript == "lib/managers/localizationmanager" then
 		elseif managers.mutators then
 			_MM = managers.mutators:get_mutator_from_id(mutator_id) or nil
 		end
-		if _MM and TMP_mutator_saving.data and TMP_mutator_saving.data[mutator_id] then
-			return true
-		elseif managers.mutators:is_mutator_active(_MM) then
-			return true
+		if _MM then
+			if TMP_mutator_saving.data and TMP_mutator_saving.data[mutator_id] then
+				return true
+			elseif managers.mutators and managers.mutators:is_mutator_active(_MM) then
+				return true
+			end
 		end
 		return false
 	end
