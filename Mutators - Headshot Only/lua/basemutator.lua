@@ -14,3 +14,6 @@ MutatorHeadshotOnly.has_options = false
 MutatorHeadshotOnly.reductions = {money = 0, exp = 0}
 MutatorHeadshotOnly.categories = {"gameplay"}
 MutatorHeadshotOnly.icon_coords = {10, 1}
+MutatorHeadshotOnly.incompatiblities = {
+	"MutatorBodyshotOnly"
+}

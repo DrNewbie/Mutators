@@ -1,5 +1,5 @@
 {
-	"name" : "Mutators - Headshot Only",
+	"name" : "Mutators - Bodyshot Only",
 	"description" : " ",
 	"author" : "Dr_Newbie",
 	"contact" : "",
