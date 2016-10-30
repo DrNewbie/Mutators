@@ -19,7 +19,7 @@ MutatorRandomizer_Data.Selected_Data = {
 
 function MutatorRandomizer_Data:Data_Generator()
 	local _size = MutatorRandomizer_Data.Possible_Data_Size
-	if not tweak_data or not tweak_data.statistics or not tweak_data.weapon or not tweak_data.weapon.factory then
+	if not tweak_data or not tweak_data.statistics or not tweak_data.weapon or not tweak_data.weapon.factory or not managers.weapon_factory then
 		return
 	end
 	local _, _, _, _weapon_list, _melee_list, _grenade_list, _, _armor_list, _character_list, _deployable_list = tweak_data.statistics:statistics_table()
