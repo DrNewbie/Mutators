@@ -1,0 +1,16 @@
+{
+	"name" : "Mutators - I want to be bulldozer",
+	"description" : "Sniper, Medic, Tazer, Shield, Cloaker have as much health as a Bulldozer",
+	"author" : "Dr_Newbie",
+	"contact" : " ",
+	"version" : "10",
+	"hooks" :
+	[
+		{"hook_id" : "lib/managers/localizationmanager", "script_path" : "lua/tmp_mutator_saving.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "lua/tmp_mutator_saving.lua"},
+		{"hook_id" : "lib/managers/menu/pages/mutatorscategorypage", "script_path" : "lua/mutatorscategorypage.lua"},
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "lua/basemutator.lua"},
+		{"hook_id" : "lib/mutators/mutatorenemyhealth", "script_path" : "lua/mutatorenemyhealth.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "lua/mutatorsmanager.lua"}
+	]
+}
