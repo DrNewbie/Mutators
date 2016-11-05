@@ -1,8 +1,5 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
-if RequiredScript == "lib/managers/menumanager" then
-end
-
 if RequiredScript == "lib/managers/localizationmanager" then
 	TMP_mutator_saving.ModPath = ModPath
 	TMP_mutator_saving.SaveFile = TMP_mutator_saving.SaveFile or SavePath .. "tmp_mutator_saving.txt"
@@ -49,6 +46,32 @@ if RequiredScript == "lib/managers/localizationmanager" then
 			TMP_mutator_saving.data[tostring(_mutator:id())] = _mutator:is_enabled()
 		end
 		self:Save()
+	end
+	
+	function TMP_mutator_saving:New_Mutators_Init(mm)
+		if Global.mutators and Global.mutators.active_on_load then
+			for id, data in pairs(Global.mutators.active_on_load) do
+				local mutator = mm:get_mutator_from_id(id)
+				if mutator and not mm:is_mutator_active(mutator) then
+					table.insert(mm:active_mutators(), {mutator = mutator})
+				end
+				for key, value in pairs(data) do
+					if Network:is_client() then
+						mutator:set_host_value(key, value)
+					end
+				end
+			end
+		end
+		local setup_mutators = {}
+		for _, active_mutator in pairs(mm:active_mutators()) do
+			table.insert(setup_mutators, active_mutator.mutator)
+		end
+		table.sort(setup_mutators, function(a, b)
+			return a.load_priority > b.load_priority
+		end)
+		for _, mutator in pairs(setup_mutators) do
+			mutator:setup(mm)
+		end
 	end
 end
 

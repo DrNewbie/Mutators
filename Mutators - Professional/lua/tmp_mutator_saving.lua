@@ -48,6 +48,32 @@ if RequiredScript == "lib/managers/localizationmanager" then
 		self:Save()
 	end
 	
+	function TMP_mutator_saving:New_Mutators_Init(mm)
+		if Global.mutators and Global.mutators.active_on_load then
+			for id, data in pairs(Global.mutators.active_on_load) do
+				local mutator = mm:get_mutator_from_id(id)
+				if mutator and not mm:is_mutator_active(mutator) then
+					table.insert(mm:active_mutators(), {mutator = mutator})
+				end
+				for key, value in pairs(data) do
+					if Network:is_client() then
+						mutator:set_host_value(key, value)
+					end
+				end
+			end
+		end
+		local setup_mutators = {}
+		for _, active_mutator in pairs(mm:active_mutators()) do
+			table.insert(setup_mutators, active_mutator.mutator)
+		end
+		table.sort(setup_mutators, function(a, b)
+			return a.load_priority > b.load_priority
+		end)
+		for _, mutator in pairs(setup_mutators) do
+			mutator:setup(mm)
+		end
+	end
+	
 	if TMP_mutator_saving:Is_This_Enable("MutatorsProfessional", MutatorsProfessional) then
 		Announcer:AddHostMod("Professional , You can't restart")
 	end
