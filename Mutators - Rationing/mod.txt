@@ -3,7 +3,7 @@
 	"description":"Enemies no longer drop ammo. Bulldozers have a chance to drop an ammo bag where they die.",
 	"author":"Dr_Newbie",
 	"contact":" ",
-	"version":"15",
+	"version":"16",
 	"libraries":[
 		{
 			"display_name":"Announcer",

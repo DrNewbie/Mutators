@@ -136,3 +136,20 @@ function BlackMarketManager:equipped_melee_weapon()
 	self:aquire_default_weapons()
 	return self._defaults.melee_weapon
 end
+
+function BlackMarketManager:forced_character()
+	if managers.network and managers.network:session() then
+		local level_data = tweak_data.levels[managers.job:current_level_id()]
+		if level_data and level_data.force_equipment then
+			local peer = managers.network:session():local_peer()
+			if peer and peer:character() ~= level_data.force_equipment.character then
+				if managers.criminals:is_taken(level_data.force_equipment.character) then
+					peer:set_character(managers.criminals:get_free_character_name())
+				else
+					peer:set_character(level_data.force_equipment.character)
+				end
+			end
+			return level_data.force_equipment.character
+		end
+	end
+end
