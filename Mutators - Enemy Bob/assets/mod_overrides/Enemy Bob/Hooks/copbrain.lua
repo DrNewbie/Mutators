@@ -1,0 +1,1 @@
+CopBrain._logic_variants["enemy_bob"] = CopBrain._logic_variants["tank"]

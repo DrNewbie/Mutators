@@ -1,0 +1,13 @@
+<table name="Enemy_Bob">
+    <AddFiles directory="Assets">
+        <unit path="units/payday2/characters/civ_male_casual_1/civ_male_casual_1" force = "true"/>
+        <unit path="units/payday2/characters/civ_male_casual_1/civ_male_casual_1_husk" force = "true"/>
+        <object path="units/payday2/characters/civ_male_casual_1/civ_male_casual_1" force = "true"/>
+    </AddFiles>
+	<Hooks directory="Hooks">
+		<hook file="charactertweakdata.lua" source_file="lib/tweak_data/charactertweakdata"/>
+		<hook file="copbrain.lua" source_file="lib/units/enemies/cop/copbrain"/>
+		<hook file="copmovement.lua" source_file="lib/units/enemies/cop/copmovement"/>
+		<hook file="elementspawncivilian.lua" source_file="lib/managers/mission/elementspawncivilian"/>
+	</Hooks>
+</table>
