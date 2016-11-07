@@ -11,7 +11,7 @@
 		<extension name="unit_data" class="ScriptUnitData" />
 		<extension name="base" class="CopBase" >
 			<var name="can_be_marked" value="true" />
-			<var name="_tweak_table" value="enemy_bob" />
+			<var name="_tweak_table" value="bobdozer" />
 			<var name="_default_weapon_id" value="m249" />
 			<var name="_stats_name" value="tank_skull" />
 		</extension>
@@ -38,9 +38,9 @@
 		<extension name="sound" class="CopSound" />
 	</extensions>
 
-	<network sync="spawn" remote_unit="units/payday2/characters/civ_male_casual_1/civ_male_casual_1_husk"/>
+  <network sync="husk" remote_unit=""/>
 
-	<sounds>
+  <sounds>
 		<default_soundsource source="Hips"/>
-	</sounds>
+  </sounds>
 </unit>

@@ -1,5 +1,5 @@
-Hooks:PostHook(MutatorItem, "init", "MutatorEnemyBob_Icon", function(mm, parent_panel, mutator, index)
-	if tostring(mutator:id()) == "MutatorEnemyBob" then
+Hooks:PostHook(MutatorItem, "init", "MutatorBobdozer_Icon", function(mm, parent_panel, mutator, index)
+	if tostring(mutator:id()) == "MutatorBobdozer" then
 		mm._icon = mm._icon_panel:bitmap({
 			name = "icon",
 			texture = "guis/dlcs/merchandise/textures/pd2/blackmarket/icons/masks/bobblehead_dozer",

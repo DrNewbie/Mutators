@@ -1,5 +1,5 @@
 {
-	"name":"Mutators - Enemy Bob",
+	"name":"Mutators - Bobdozer",
 	"description":"Bob will attack you",
 	"author":"Dr_Newbie",
 	"contact":" ",

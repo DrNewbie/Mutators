@@ -1,4 +1,4 @@
-<table name="Enemy_Bob">
+<table name="Bobdozer">
     <AddFiles directory="Assets">
         <unit path="units/payday2/characters/civ_male_casual_1/civ_male_casual_1" force = "true"/>
         <unit path="units/payday2/characters/civ_male_casual_1/civ_male_casual_1_husk" force = "true"/>
