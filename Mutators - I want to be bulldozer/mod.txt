@@ -3,7 +3,7 @@
 	"description" : "Sniper, Medic, Tazer, Shield, Cloaker have as much health as a Bulldozer",
 	"author" : "Dr_Newbie",
 	"contact" : " ",
-	"version" : "15",
+	"version" : "16",
 	"hooks" :
 	[
 		{"hook_id" : "lib/managers/localizationmanager", "script_path" : "lua/tmp_mutator_saving.lua"},

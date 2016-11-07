@@ -10,7 +10,7 @@ function MutatorEnemyHealth:modify_character_tweak_data(character_tweak)
 			end
 		end
 		if TMP_mutator_saving:Is_This_Enable("MutatorBeBulldozer", MutatorBeBulldozer) then
-			for i, character in ipairs({"taser", "shield", "spooc", "medic"}) do
+			for i, character in ipairs({"taser", "shield", "spooc", "medic", "sniper"}) do
 				if character_tweak[character] then
 					character_tweak[character].HEALTH_INIT = character_tweak["tank"].HEALTH_INIT
 					character_tweak[character].use_animation_on_fire_damage = character_tweak["tank"].use_animation_on_fire_damage
