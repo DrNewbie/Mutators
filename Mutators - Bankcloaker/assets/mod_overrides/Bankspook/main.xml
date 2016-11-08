@@ -1,0 +1,13 @@
+<table name="Bankspook">
+    <AddFiles directory="Assets">
+        <unit path="units/payday2/characters/civ_male_bank_1/civ_male_bank_1" force = "true"/>
+        <unit path="units/payday2/characters/civ_male_bank_1/civ_male_bank_1_husk" force = "true"/>
+        <object path="units/payday2/characters/civ_male_bank_1/civ_male_bank_1" force = "true"/>
+        <unit path="units/payday2/characters/civ_male_bank_2/civ_male_bank_2" force = "true"/>
+        <unit path="units/payday2/characters/civ_male_bank_2/civ_male_bank_2_husk" force = "true"/>
+        <object path="units/payday2/characters/civ_male_bank_2/civ_male_bank_2" force = "true"/>
+    </AddFiles>
+	<Hooks directory="Hooks">
+		<hook file="elementspawncivilian.lua" source_file="lib/managers/mission/elementspawncivilian"/>
+	</Hooks>
+</table>
