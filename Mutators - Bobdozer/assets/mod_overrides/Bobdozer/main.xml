@@ -8,6 +8,7 @@
 		<hook file="charactertweakdata.lua" source_file="lib/tweak_data/charactertweakdata"/>
 		<hook file="copbrain.lua" source_file="lib/units/enemies/cop/copbrain"/>
 		<hook file="copmovement.lua" source_file="lib/units/enemies/cop/copmovement"/>
+		<hook file="copinventory.lua" source_file="lib/units/enemies/cop/copinventory"/>
 		<hook file="elementspawncivilian.lua" source_file="lib/managers/mission/elementspawncivilian"/>
 	</Hooks>
 </table>
