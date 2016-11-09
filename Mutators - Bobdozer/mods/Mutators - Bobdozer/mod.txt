@@ -3,7 +3,7 @@
 	"description":"Bob will attack you",
 	"author":"Dr_Newbie",
 	"contact":" ",
-	"version":"16",
+	"version":"17",
 	"libraries":[  
 		{  
 			"display_name":"BeardLib",
