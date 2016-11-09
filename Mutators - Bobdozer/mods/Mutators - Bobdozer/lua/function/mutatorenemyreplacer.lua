@@ -5,8 +5,8 @@ local _MutatorBobdozer_MutatorEnemyReplacer_get_unit_group_tank = MutatorEnemyRe
 function MutatorEnemyReplacer:_get_unit_group_tank(...)
 	local _res = _MutatorBobdozer_MutatorEnemyReplacer_get_unit_group_tank(self, ...)
 	if TMP_mutator_saving:Is_This_Enable("MutatorBobdozer", MutatorBobdozer) then
-		table.insert(_res.unit_types.america, "units/payday2/characters/civ_male_casual_1/civ_male_casual_1")
-		table.insert(_res.unit_types.russia, "units/payday2/characters/civ_male_casual_1/civ_male_casual_1")
+		table.insert(_res.unit_types.america, Idstring("units/payday2/characters/civ_male_casual_1/civ_male_casual_1"))
+		table.insert(_res.unit_types.russia, Idstring("units/payday2/characters/civ_male_casual_1/civ_male_casual_1"))
 	end
 	return _res
 end
@@ -37,7 +37,7 @@ end
 
 function MutatorBobdozer:modify_unit_categories(group_ai_tweak, difficulty_index)
 	if TMP_mutator_saving:Is_This_Enable("MutatorBobdozer", MutatorBobdozer) then
-		table.insert(group_ai_tweak.unit_categories.FBI_tank.unit_types.america, "units/payday2/characters/civ_male_casual_1/civ_male_casual_1")
-		table.insert(group_ai_tweak.unit_categories.FBI_tank.unit_types.russia, "units/payday2/characters/civ_male_casual_1/civ_male_casual_1")
+		table.insert(group_ai_tweak.unit_categories.FBI_tank.unit_types.america, Idstring("units/payday2/characters/civ_male_casual_1/civ_male_casual_1"))
+		table.insert(group_ai_tweak.unit_categories.FBI_tank.unit_types.russia, Idstring("units/payday2/characters/civ_male_casual_1/civ_male_casual_1"))
 	end
 end

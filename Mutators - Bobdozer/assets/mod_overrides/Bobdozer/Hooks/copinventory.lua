@@ -1,9 +1,6 @@
 Hooks:PostHook(CopInventory, "init", "Bobdozer_SetMaskInit", function(cop, ...)
 	cop._mask_visibility = false
-	cop._mask_unit_name = "NONE"
-	if cop._unit:name():key() == Idstring("units/payday2/characters/civ_male_casual_1/civ_male_casual_1"):key() then
-		cop._mask_unit_name = "units/pd2_merchandise/masks/msk_bobblehead_dozer/msk_bobblehead_dozer"
-	end
+	cop._mask_unit_name = cop._mask_unit_name or "NONE"
 end)
 
 function CopInventory:Can_I_Have_Mask()
@@ -51,6 +48,13 @@ function CopInventory:set_mask_visibility(state)
 	if not self:Can_I_Have_Mask() then
 		return
 	end
+	if self._unit == managers.player:player_unit() then
+		return
+	end
+	local character_name = managers.criminals:character_name_by_unit(self._unit)
+	if character_name then
+		return
+	end
 	self._mask_visibility = state
 	if alive(self._mask_unit) then
 		if not state then
@@ -69,6 +73,9 @@ function CopInventory:set_mask_visibility(state)
 	end
 	mask_unit_name = self._mask_unit_name
 	local mask_align = self._unit:get_object(Idstring("Head"))
+	if not mask_align then
+		return
+	end
 	local mask_unit = World:spawn_unit(Idstring(mask_unit_name), mask_align:position(), mask_align:rotation())
 	self._unit:link(mask_align:name(), mask_unit, mask_unit:orientation_object():name())
 	self._mask_unit = mask_unit
