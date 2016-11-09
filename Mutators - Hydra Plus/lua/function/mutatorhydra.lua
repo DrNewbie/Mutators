@@ -1,3 +1,5 @@
+_G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
+
 MutatorHydra.re_raw_enemy_list = {
 	["units/payday2/characters/ene_bulldozer_3/ene_bulldozer_3"] = {},
 	["units/payday2/characters/ene_bulldozer_2/ene_bulldozer_2"] = {
@@ -51,14 +53,8 @@ MutatorHydra.re_raw_enemy_list = {
 			1
 		}
 	},
-	["units/payday2/characters/ene_sniper_2/ene_sniper_2"] = {
-		"units/payday2/characters/ene_spook_1/ene_spook_1",
-		"units/payday2/characters/ene_tazer_1/ene_tazer_1"
-	},
-	["units/payday2/characters/ene_sniper_1/ene_sniper_1"] = {
-		"units/payday2/characters/ene_spook_1/ene_spook_1",
-		"units/payday2/characters/ene_tazer_1/ene_tazer_1"
-	},
+	["units/payday2/characters/ene_sniper_2/ene_sniper_2"] = {},
+	["units/payday2/characters/ene_sniper_1/ene_sniper_1"] = {},
 	["units/payday2/characters/ene_medic_m4/ene_medic_m4"] = {
 		"units/payday2/characters/ene_spook_1/ene_spook_1",
 		"units/payday2/characters/ene_tazer_1/ene_tazer_1"
@@ -73,16 +69,9 @@ MutatorHydra.re_raw_enemy_list = {
 	["units/payday2/characters/ene_tazer_1/ene_tazer_1"] = {
 		"units/payday2/characters/ene_bulldozer_1/ene_bulldozer_1"
 	},
-	["units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3"] = {},
-	["units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"] = {
-		{
-			"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2",
-			3
-		},
-		{
-			"units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/ene_zeal_cloaker",
-			1
-		}
+	["units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"] = {},
+	["units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3"] = {
+		"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"
 	},
 	["units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2"] = {
 		"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3"
@@ -94,7 +83,7 @@ MutatorHydra.re_raw_enemy_list = {
 		"units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer"
 	},
 	["units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer"] = {
-		"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"
+		"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2"
 	},
 	["units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"] = {
 		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"
@@ -415,8 +404,22 @@ end
 
 function MutatorHydra:_setup_enemy_list()
 	local converted_list = {}
-	local _lise = self:use_toggle_hydra_re() and self.re_raw_enemy_list or self.raw_enemy_list
-	_lise = _lise or self.raw_enemy_list
+	local _lise = self.raw_enemy_list
+	if self:use_toggle_hydra_re() then
+		_lise = self.re_raw_enemy_list
+		if TMP_mutator_saving and TMP_mutator_saving:Is_This_Enable("MutatorBobdozer", MutatorBobdozer) then
+			_lise["units/payday2/characters/ene_bulldozer_3/ene_bulldozer_3"] = {
+				"units/payday2/characters/civ_male_casual_1/civ_male_casual_1"
+			}
+			_lise["units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"] = {
+				"units/payday2/characters/civ_male_casual_1/civ_male_casual_1"
+			}
+			_lise["units/pd2_dlc_mad/characters/ene_akan_fbi_tank_rpk_lmg/ene_akan_fbi_tank_rpk_lmg"] = {
+				"units/payday2/characters/civ_male_casual_1/civ_male_casual_1"
+			}				
+			_lise["units/payday2/characters/civ_male_casual_1/civ_male_casual_1"] = {}
+		end
+	end
 	for k, units in pairs(_lise) do
 		local selector = WeightedSelector:new()
 		local _k = Idstring(k):key()

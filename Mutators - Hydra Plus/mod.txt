@@ -3,7 +3,7 @@
 	"description":" ",
 	"author":"Dr_Newbie",
 	"contact":" ",
-	"version":"15",
+	"version":"16",
 	"hooks" :
 	[
 		{"hook_id":"lib/mutators/mutatorhydra", "script_path":"lua/function/mutatorhydra.lua"}
