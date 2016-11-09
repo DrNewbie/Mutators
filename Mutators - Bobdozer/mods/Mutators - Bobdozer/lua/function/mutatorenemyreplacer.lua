@@ -36,6 +36,8 @@ function MutatorBobdozer:setup()
 end
 
 function MutatorBobdozer:modify_unit_categories(group_ai_tweak, difficulty_index)
-	table.insert(group_ai_tweak.unit_categories.FBI_tank.unit_types.america, "units/payday2/characters/civ_male_casual_1/civ_male_casual_1")
-	table.insert(group_ai_tweak.unit_categories.FBI_tank.unit_types.russia, "units/payday2/characters/civ_male_casual_1/civ_male_casual_1")
+	if TMP_mutator_saving:Is_This_Enable("MutatorBobdozer", MutatorBobdozer) then
+		table.insert(group_ai_tweak.unit_categories.FBI_tank.unit_types.america, "units/payday2/characters/civ_male_casual_1/civ_male_casual_1")
+		table.insert(group_ai_tweak.unit_categories.FBI_tank.unit_types.russia, "units/payday2/characters/civ_male_casual_1/civ_male_casual_1")
+	end
 end
