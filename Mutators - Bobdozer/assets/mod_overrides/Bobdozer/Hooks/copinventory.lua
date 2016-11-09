@@ -1,9 +1,23 @@
+Hooks:PostHook(CopInventory, "init", "Bobdozer_SetMaskInit", function(cop, ...)
+	cop._mask_visibility = false
+	cop._mask_unit_name = "NONE"
+	if cop._unit:name():key() == Idstring("units/payday2/characters/civ_male_casual_1/civ_male_casual_1"):key() then
+		cop._mask_unit_name = "units/pd2_merchandise/masks/msk_bobblehead_dozer/msk_bobblehead_dozer"
+	end
+end)
+
+function CopInventory:Can_I_Have_Mask()
+	if not self._mask_unit_name or not self._mask_unit_name:find("masks") or self._mask_unit_name:find("NONE") then
+		return false
+	end
+	return true
+end
+
 function CopInventory:preload_mask()
-	if self._unit:name():key() ~= Idstring("units/payday2/characters/civ_male_casual_1/civ_male_casual_1"):key() then
+	if not self:Can_I_Have_Mask() then
 		return
 	end
 	self._mask_visibility = true
-	self._mask_unit_name = "units/pd2_merchandise/masks/msk_bobblehead_dozer/msk_bobblehead_dozer"
 	managers.dyn_resource:load(Idstring("unit"), Idstring(self._mask_unit_name), managers.dyn_resource.DYN_RESOURCES_PACKAGE, callback(self, self, "clbk_mask_unit_loaded"))
 end
 
@@ -17,10 +31,11 @@ function CopInventory:is_mask_unit_loaded()
 end
 
 function CopInventory:_unload_mask()
-	if self._mask_unit_name then
-		managers.dyn_resource:unload(Idstring("unit"), Idstring(self._mask_unit_name), DynamicResourceManager.DYN_RESOURCES_PACKAGE, false)
-		self._mask_unit_name = nil
+	if not self:Can_I_Have_Mask() then
+		return
 	end
+	managers.dyn_resource:unload(Idstring("unit"), Idstring(self._mask_unit_name), DynamicResourceManager.DYN_RESOURCES_PACKAGE, false)
+	self._mask_unit_name = nil
 end
 
 function CopInventory:_reset_mask_visibility()
@@ -33,12 +48,7 @@ function CopInventory:pre_destroy(unit)
 end
 
 function CopInventory:set_mask_visibility(state)
-	self._mask_visibility = state
-	if self._unit == managers.player:player_unit() then
-		return
-	end
-	local character_name = managers.criminals:character_name_by_unit(self._unit)
-	if character_name then
+	if not self:Can_I_Have_Mask() then
 		return
 	end
 	self._mask_visibility = state
