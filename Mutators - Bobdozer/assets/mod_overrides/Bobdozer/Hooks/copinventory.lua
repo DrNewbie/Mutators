@@ -3,49 +3,45 @@ Hooks:PostHook(CopInventory, "init", "Bobdozer_SetMaskInit", function(cop, ...)
 	cop._mask_unit_name = cop._mask_unit_name or "NONE"
 end)
 
-function CopInventory:Can_I_Have_Mask()
+function CopInventory:CUS_Can_I_Have_Mask()
 	if not self._mask_unit_name or not self._mask_unit_name:find("masks") or self._mask_unit_name:find("NONE") then
 		return false
 	end
 	return true
 end
 
-function CopInventory:preload_mask()
-	if not self or not self:Can_I_Have_Mask() then
+function CopInventory:CUS_preload_mask()
+	if not self or not self:CUS_Can_I_Have_Mask() then
 		return
 	end
 	self._mask_visibility = true
-	managers.dyn_resource:load(Idstring("unit"), Idstring(self._mask_unit_name), managers.dyn_resource.DYN_RESOURCES_PACKAGE, callback(self, self, "clbk_mask_unit_loaded"))
+	managers.dyn_resource:load(Idstring("unit"), Idstring(self._mask_unit_name), managers.dyn_resource.DYN_RESOURCES_PACKAGE, callback(self, self, "CUS_clbk_mask_unit_loaded"))
 end
 
-function CopInventory:clbk_mask_unit_loaded(status, asset_type, asset_name)
+function CopInventory:CUS_clbk_mask_unit_loaded(status, asset_type, asset_name)
 	self._mask_unit_loaded = status
-	self:_reset_mask_visibility()
+	self:CUS_reset_mask_visibility()
 end
 
-function CopInventory:is_mask_unit_loaded()
-	return self._mask_unit_loaded
-end
-
-function CopInventory:_unload_mask()
-	if not self:Can_I_Have_Mask() then
+function CopInventory:CUS_unload_mask()
+	if not self:CUS_Can_I_Have_Mask() then
 		return
 	end
 	managers.dyn_resource:unload(Idstring("unit"), Idstring(self._mask_unit_name), DynamicResourceManager.DYN_RESOURCES_PACKAGE, false)
 	self._mask_unit_name = nil
 end
 
-function CopInventory:_reset_mask_visibility()
-	self:set_mask_visibility(self._mask_visibility and true or false)
+function CopInventory:CUS_reset_mask_visibility()
+	self:CUS_set_mask_visibility(self._mask_visibility and true or false)
 end
 
-function CopInventory:pre_destroy(unit)
+function CopInventory:CUS_pre_destroy(unit)
 	CopInventory.super.pre_destroy(self, unit)
-	self:_unload_mask()
+	self:CUS_unload_mask()
 end
 
-function CopInventory:set_mask_visibility(state)
-	if not self:Can_I_Have_Mask() then
+function CopInventory:CUS_set_mask_visibility(state)
+	if not self:CUS_Can_I_Have_Mask() then
 		return
 	end
 	if self._unit == managers.player:player_unit() then
