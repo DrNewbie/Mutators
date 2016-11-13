@@ -24,8 +24,6 @@ Hooks:PostHook(MutatorDeathMatch, "set_enabled", "MutatorDeathMatch_set_enabled"
 	end
 end )
 
-
-
 function MutatorDeathMatch:request_player_spawn(peer_to_spawn, pos, rot, ai)
 	if Network:is_client() then
 		return
