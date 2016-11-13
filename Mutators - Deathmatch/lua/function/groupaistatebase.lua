@@ -1,5 +1,9 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
+if Network:is_client() then
+	return
+end
+
 TMP_mutator_saving.data = TMP_mutator_saving.data or {}
 
 TMP_mutator_saving.TMP_Var = TMP_mutator_saving.TMP_Var or {}
@@ -8,6 +12,9 @@ TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch = TMP_mutator_
 TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Respawn = TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Respawn or {}
 
 Hooks:PostHook(GroupAIStateBase, "report_criminal_downed", "MutatorDeathMatch_report_criminal_downed_Init", function(gab, unit, ...)
+	if Network:is_client() then
+		return
+	end
 	if TMP_mutator_saving:Is_This_Enable("MutatorDeathMatch", MutatorDeathMatch) then
 		local _peer = managers.network:session():peer_by_unit(unit)
 		if _peer then
@@ -28,7 +35,7 @@ Hooks:PostHook(GroupAIStateBase, "report_criminal_downed", "MutatorDeathMatch_re
 			end
 			TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Respawn[_peer:id()] = {ready = true, t = 0, id = _peer:id()}
 		else
-			TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Respawn[unit:key()] = {ready = true, t = 0, id = 0}
+			TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Respawn[tostring(unit:key())] = {ready = true, t = 0, id = 0}
 		end
 	end
 end )

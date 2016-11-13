@@ -1,5 +1,9 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
+if Network:is_client() then
+	return
+end
+
 TMP_mutator_saving.TMP_Var = TMP_mutator_saving.TMP_Var or {}
 TMP_mutator_saving.TMP_Var.MissionScriptElement = TMP_mutator_saving.TMP_Var.MissionScriptElement or {}
 TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch = TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch or {}
@@ -7,6 +11,9 @@ TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Delay_Run = TM
 TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Respawn = TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Respawn or {}
 
 Hooks:Add("GameSetupUpdate", "MutatorDeathMatchGameSetupUpdate", function(t, dt)
+	if Network:is_client() then
+		return
+	end
 	if TMP_mutator_saving:Is_This_Enable("MutatorDeathMatch", MutatorDeathMatch) then
 		if Utils:IsInHeist() then
 			if TMP_mutator_saving.TMP_Var.MissionScriptElement.MutatorDeathMatch.Delay_Run > t then
