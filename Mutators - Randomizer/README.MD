@@ -1,10 +1,10 @@
+###Your loadout will be random.
+
 Idea Credit: [FlaminSarge](https://wiki.teamfortress.com/wiki/Randomizer)
 
 Image Credit: KelpPlankton
 
-Your loadout will be random.
-
-PS:
+####PS:
 
 Everyone need this Mod
 
@@ -12,7 +12,7 @@ Not from your inventory
 
 You can't choose what's randomized
 
-Preview :
+####Preview :
 
 http://steamcommunity.com/sharedfiles/filedetails/?id=783216530
 
