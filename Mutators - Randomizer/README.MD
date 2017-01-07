@@ -1,3 +1,7 @@
+Idea Credit: [FlaminSarge](https://wiki.teamfortress.com/wiki/Randomizer)
+
+Image Credit: KelpPlankton
+
 Your loadout will be random.
 
 PS:
@@ -23,7 +27,3 @@ http://steamcommunity.com/sharedfiles/filedetails/?id=783511329
 ![ScreenShot](http://i.imgur.com/x4vuum2.jpg)
 
 ![ScreenShot](http://i.imgur.com/RX7OyJb.jpg)
-
-Idea Credit: FlaminSarge
-
-Image Credit: KelpPlankton
