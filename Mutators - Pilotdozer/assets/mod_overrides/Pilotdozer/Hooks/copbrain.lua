@@ -1,1 +1,0 @@
-CopBrain._logic_variants["pilotdozer"] = CopBrain._logic_variants["tank"]
