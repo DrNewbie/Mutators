@@ -1,11 +1,5 @@
-_G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
-
-if InstantRicochetBulletBase or not TMP_mutator_saving:Is_This_Enable("MutatorAprilFools", MutatorAprilFools) then
-	return
-end
-
 InstantRicochetBulletBase = InstantRicochetBulletBase or class(InstantBulletBase)
-InstantRicochetBulletBase.TRAIL_EFFECT = Idstring("effects/payday2/particles/weapons/trail_adam")
+InstantRicochetBulletBase.TRAIL_EFFECT = Idstring("effects/particles/weapons/sniper_trail")
 local idstr_trail = Idstring("trail")
 local idstr_simulator_length = Idstring("simulator_length")
 local idstr_size = Idstring("size")

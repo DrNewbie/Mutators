@@ -1,10 +1,4 @@
 Hooks:PostHook(WeaponFactoryTweakData, "init", "Backup_wpn_fps_upg_pis_adam", function(self, ...)
-	if not self or not self.parts then
-		return
-	end
-	if self.parts.wpn_fps_upg_pis_adam then
-		return		
-	end
 	self.parts.wpn_fps_upg_pis_adam = {
 		pcs = {},
 		type = "ammo",
