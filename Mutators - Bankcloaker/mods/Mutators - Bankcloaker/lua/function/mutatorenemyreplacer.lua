@@ -1,9 +1,9 @@
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
-local _MutatorBankspook_MutatorEnemyReplacer_get_unit_group_tank = MutatorEnemyReplacer._get_unit_group_tank
+local _MutatorBankspook_MutatorEnemyReplacer_get_unit_group_spooc = MutatorEnemyReplacer._get_unit_group_spooc
 
-function MutatorEnemyReplacer:_get_unit_group_tank(...)
-	local _res = _MutatorBankspook_MutatorEnemyReplacer_get_unit_group_tank(self, ...)
+function MutatorEnemyReplacer:_get_unit_group_spooc(...)
+	local _res = _MutatorBankspook_MutatorEnemyReplacer_get_unit_group_spooc(self, ...)
 	if TMP_mutator_saving:Is_This_Enable("MutatorBankspook", MutatorBankspook) then
 		table.insert(_res.unit_types.america, "units/payday2/characters/civ_male_bank_1/civ_male_bank_1")
 		table.insert(_res.unit_types.russia, "units/payday2/characters/civ_male_bank_2/civ_male_bank_2")
