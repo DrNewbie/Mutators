@@ -3,7 +3,7 @@
 	"description":" ",
 	"author":"Dr_Newbie",
 	"contact":" ",
-	"version":"24",
+	"version":"25",
 	"hooks" :
 	[
 		{"hook_id":"lib/managers/weaponfactorymanager", "script_path":"lua/function/weaponfactorymanager.lua"},

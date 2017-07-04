@@ -7,7 +7,7 @@ function WeaponFactoryManager:get_ammo_data_from_weapon(factory_id, blueprint)
 		if factory.parts[id].type == "ammo" then
 			local part = self:_part_data(id, factory_id)
 			if not TMP_mutator_saving:Is_This_Enable("MutatorAprilFools", MutatorAprilFools) then
-				if tostring(part.custom_stats.bullet_class) == "InstantRicochetBulletBase" then
+				if part and part.custom_stats and tostring(part.custom_stats.bullet_class) == "InstantRicochetBulletBase" then
 				
 				else
 					t = part.custom_stats

@@ -1,17 +1,16 @@
+_G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
+
 CloneClass( ContourExt )
 
-Hooks:RegisterHook("ContourExtPreInitialize")
-Hooks:RegisterHook("ContourExtPostInitialize")
 function ContourExt.init(self, ...)
-	Hooks:Call("ContourExtPreInitialize", self, ...)
-	self.orig.init(self, ...)
-	Hooks:Call("ContourExtPostInitialize", self, ...)
+	if TMP_mutator_saving:Is_This_Enable("MutatorRealism", MutatorRealism) then
+		return
+	end
+	return self.orig.init(self, ...)
 end
 
-Hooks:RegisterHook("ContourExtPreAdd")
 function ContourExt.add(self, ...)
-	local r = Hooks:ReturnCall("ContourExtPreAdd", self, ...)
-	if r ~= nil then
+	if TMP_mutator_saving:Is_This_Enable("MutatorRealism", MutatorRealism) then
 		return
 	end
 	return self.orig.add(self, ...)
