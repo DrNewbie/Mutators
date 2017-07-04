@@ -16,3 +16,15 @@ function ElementSpawnCivilian:produce(...)
 	end
 	return _res
 end
+
+_G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
+
+if TMP_mutator_saving:Is_This_Enable("MutatorBankspook", MutatorBankspook) then
+	local MutatorBankspook_Assets = "assets/mod_overrides/Bankspook/units/payday2/characters/"
+	BeardLib:ReplaceScriptData(MutatorBankspook_Assets .. "civ_male_bank_1/civ_male_bank_1.unit", "xml", "units/payday2/characters/civ_male_bank_1/civ_male_bank_1", "unit", {custom = true})
+	BeardLib:ReplaceScriptData(MutatorBankspook_Assets .. "civ_male_bank_1/civ_male_bank_1_husk.unit", "xml", "units/payday2/characters/civ_male_bank_1/civ_male_bank_1_husk", "unit", {custom = true})
+	BeardLib:ReplaceScriptData(MutatorBankspook_Assets .. "civ_male_bank_1/civ_male_bank_1.object", "xml", "units/payday2/characters/civ_male_bank_1/civ_male_bank_1", "object", {custom = true})
+	BeardLib:ReplaceScriptData(MutatorBankspook_Assets .. "civ_male_bank_2/civ_male_bank_2.unit", "xml", "units/payday2/characters/civ_male_bank_2/civ_male_bank_2", "unit", {custom = true})
+	BeardLib:ReplaceScriptData(MutatorBankspook_Assets .. "civ_male_bank_2/civ_male_bank_2_husk.unit", "xml", "units/payday2/characters/civ_male_bank_2/civ_male_bank_2_husk", "unit", {custom = true})
+	BeardLib:ReplaceScriptData(MutatorBankspook_Assets .. "civ_male_bank_2/civ_male_bank_2.object", "xml", "units/payday2/characters/civ_male_bank_2/civ_male_bank_2", "object", {custom = true})
+end
