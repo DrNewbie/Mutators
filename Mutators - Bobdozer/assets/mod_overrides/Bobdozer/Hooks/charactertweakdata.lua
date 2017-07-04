@@ -3,9 +3,9 @@ Hooks:PostHook(CharacterTweakData, "_init_tank", "Enemy_Bob_CharacterTweakData_i
 	cc.bobdozer = deep_clone(cc.tank)
 	cc.bobdozer.headshot_dmg_mul = 2
 	local _FALLOFF = {
-		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.1, 0.1}, mode = {50, 50, 50, 50}},
-		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.1, 0.1}, mode = {50, 50, 50, 50}},
-		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.1, 0.1}, mode = {50, 50, 50, 50}}
+		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}},
+		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}},
+		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}}
 	}
 	cc.bobdozer.weapon.saiga.FALLOFF = deep_clone(_FALLOFF)
 	cc.bobdozer.weapon.beretta92.FALLOFF = deep_clone(_FALLOFF)		
@@ -17,7 +17,7 @@ Hooks:PostHook(CharacterTweakData, "_init_tank", "Enemy_Bob_CharacterTweakData_i
 end )
 
 Hooks:PostHook(CharacterTweakData, "_multiply_all_hp", "Enemy_Bob_CharacterTweakData_multiply_all_hp", function(cc, ...)
-	cc.bobdozer.HEALTH_INIT = cc.tank.HEALTH_INIT * 1.5
+	cc.bobdozer.HEALTH_INIT = cc.tank.HEALTH_INIT * 1.75
 end )
 
 Hooks:PostHook(CharacterTweakData, "_multiply_all_speeds", "Enemy_Bob_CharacterTweakData_multiply_all_speeds", function(cc, ...)
