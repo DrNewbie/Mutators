@@ -3,17 +3,15 @@ Hooks:PostHook(CharacterTweakData, "_init_tank", "Enemy_Bob_CharacterTweakData_i
 	cc.bobdozer = deep_clone(cc.tank)
 	cc.bobdozer.headshot_dmg_mul = 2
 	local _FALLOFF = {
-		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}},
-		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}},
-		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}}
+		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}, autofire_rounds = {500, 700}},
+		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}, autofire_rounds = {500, 700}},
+		{r = 10000, acc = {1, 1}, dmg_mul = 7, recoil = {0.3, 0.5}, mode = {30, 30, 30, 30}, autofire_rounds = {500, 700}}
 	}
-	cc.bobdozer.weapon.saiga.FALLOFF = deep_clone(_FALLOFF)
-	cc.bobdozer.weapon.beretta92.FALLOFF = deep_clone(_FALLOFF)		
-	cc.bobdozer.weapon.raging_bull.FALLOFF = deep_clone(_FALLOFF)		
-	cc.bobdozer.weapon.m4.FALLOFF = deep_clone(_FALLOFF)		
-	cc.bobdozer.weapon.ak47.FALLOFF = deep_clone(_FALLOFF)		
-	cc.bobdozer.weapon.r870.FALLOFF = deep_clone(_FALLOFF)		
-	cc.bobdozer.weapon.mossberg.FALLOFF = deep_clone(_FALLOFF)
+	cc.bobdozer.weapon.mini.FALLOFF = _FALLOFF
+	cc.bobdozer.weapon.mini.focus_delay = 1
+	cc.bobdozer.weapon.mini.focus_dis = 8000
+	cc.bobdozer.weapon.mini.spread = 10
+	cc.bobdozer.weapon.mini.miss_dis = 8000
 end )
 
 Hooks:PostHook(CharacterTweakData, "_multiply_all_hp", "Enemy_Bob_CharacterTweakData_multiply_all_hp", function(cc, ...)
