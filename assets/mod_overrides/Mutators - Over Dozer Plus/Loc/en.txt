@@ -1,0 +1,19 @@
+{
+	"mutator_shield_dozers_desc" : "Make bulldozer great again",
+	"mutator_shield_dozers_longdesc" : "Shield, Health, Weapon, Speed...",
+	"menu_mutator_overdozer_health_rebuff" : "Re-Buff some health things",
+	"menu_mutator_overdozer_use_mini" : "Use Minigun",
+	"menu_mutator_overdozer_enable_medicdozer" : "Add Medic-dozer into group",
+	"menu_mutator_overdozer_enable_minidozer" : "Add Mini-dozer into group",
+	"menu_mutator_overdozer_can_be_tased" : "Can be tased",
+	"menu_mutator_overdozer_super_speed" : "Super speed",
+	"menu_mutator_overdozer_steal_loot" : "Steal loot",
+	"menu_mutator_overdozer_immune_to_knock_down" : "Immune to knock down",
+	"menu_mutator_overdozer_immune_to_concussion" : "Immune to concussion",
+	"menu_mutator_overdozer_immune_to_knockback" : "Immune to knockback",
+	"menu_mutator_overdozer_shield_knocked" : "Shield knocked",
+	"menu_mutator_overdozer_use_animation_on_fire_damage" : "Animation on fire damage",
+	"menu_mutator_overdozer_flammable" : "Flammable",
+	"menu_mutator_overdozer_rescue_hostages" : "Rescue hostages",
+	"menu_mutator_overdozer_use_shield" : "Use Shield"
+}
