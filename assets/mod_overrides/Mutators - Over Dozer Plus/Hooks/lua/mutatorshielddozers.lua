@@ -38,7 +38,7 @@ end
 
 for k, v in pairs(MutatorShieldDozers.all_toggle) do
 	MutatorShieldDozers["get_overdozer_" .. k] = function(self, item)
-		return self:value("overdozer_" .. k) == nil and false or true
+		return tostring(self:value("overdozer_" .. k)) == "true" and true or false
 	end
 
 	MutatorShieldDozers["_update_overdozer_" .. k .. "_toggle"] = function(self, item)
