@@ -64,7 +64,7 @@ function MutatorShieldDozers:reset_to_default()
 		for k, v in pairs(self.all_toggle) do
 			toggle = self._node:item("overdozer_" .. k .. "_toggle")
 			if toggle then
-				toggle:set_value(self["overdozer_" .. k .. ""](self) and "on" or "off")
+				toggle:set_value(self:value("overdozer_" .. k) and "on" or "off")
 			end
 		end
 	end
