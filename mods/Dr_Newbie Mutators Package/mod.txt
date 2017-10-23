@@ -1,0 +1,138 @@
+{
+	"name" : "Dr_Newbie Mutators Package",
+	"description" : " ",
+	"author" : "Dr_Newbie",
+	"contact" : " ",
+	"version" : "1",
+	"priority": 1000,
+	"blt_version": 2,
+	"libraries" : [
+		{
+			"display_name" : "Announcer",
+			"identifier" : "ANCR",
+			"optional" : "false"
+		},
+		{  
+			"display_name":"BeardLib",
+			"identifier":"beardlib"
+		}
+	],
+	"hooks" :
+	[
+		{"hook_id": "lib/managers/localizationmanager", "script_path": "Base.lua"},
+		
+		{"hook_id" : "lib/mutators/mutatorexplodingenemies", "script_path" : "All Enemy is Nuclear/mutatorexplodingenemies.lua"},
+		{"hook_id" : "lib/managers/menumanager", "script_path" : "All Enemy is Nuclear/menumanager.lua"},
+		
+		{"hook_id":"lib/managers/weaponfactorymanager", "script_path":"April fools/function/weaponfactorymanager.lua"},
+		{"hook_id":"lib/units/weapons/grenades/molotovgrenade", "script_path":"April fools/function/molotovgrenade.lua"},
+		{"hook_id":"lib/units/weapons/grenades/fraggrenade", "script_path":"April fools/function/fraggrenade.lua"},
+		{"hook_id":"lib/units/weapons/grenades/concussiongrenade", "script_path":"April fools/function/concussiongrenade.lua"},
+		{"hook_id":"lib/units/weapons/raycastweaponbase", "script_path":"April fools/function/raycastweaponbase.lua"},
+		{"hook_id":"lib/tweak_data/weaponfactorytweakdata", "script_path" : "April fools/function/weaponfactorytweakdata.lua"},
+		{"hook_id":"lib/tweak_data/tweakdata", "script_path" : "April fools/function/tweakdata.lua"},
+		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage", "script_path":"April fools/mutatorscategorypage.lua"},
+		{"hook_id":"lib/mutators/basemutator", "script_path":"April fools/basemutator.lua"},
+		{"hook_id":"lib/managers/mutatorsmanager", "script_path":"April fools/mutatorsmanager.lua"},
+		
+		{"hook_id":"lib/mutators/mutatorenemyreplacer", "script_path":"Bankcloaker/function/mutatorenemyreplacer.lua"},
+		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage", "script_path":"Bankcloaker/mutatorscategorypage.lua"},
+		{"hook_id":"lib/mutators/basemutator", "script_path":"Bankcloaker/basemutator.lua"},
+		{"hook_id":"lib/managers/mutatorsmanager", "script_path":"Bankcloaker/mutatorsmanager.lua"},
+		
+		{"hook_id" : "lib/mutators/mutatorenemyreplacer", "script_path" : "BFFs Plus/mutatorenemyreplacer.lua"},
+		{"hook_id" : "lib/managers/menumanager", "script_path" : "BFFs Plus/menumanager.lua"},
+		
+		{"hook_id":"lib/mutators/mutatorenemyreplacer", "script_path":"Bobdozer/function/mutatorenemyreplacer.lua"},
+		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage", "script_path":"Bobdozer/mutatorscategorypage.lua"},
+		{"hook_id":"lib/mutators/basemutator", "script_path":"Bobdozer/basemutator.lua"},
+		{"hook_id":"lib/managers/mutatorsmanager", "script_path":"Bobdozer/mutatorsmanager.lua"},
+		
+		{"hook_id" : "lib/units/enemies/cop/copdamage", "script_path" : "Bodyshot Only/function/copdamage.lua"},
+		{"hook_id" : "lib/managers/menu/pages/mutatorscategorypage", "script_path" : "Bodyshot Only/mutatorscategorypage.lua"},
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "Bodyshot Only/basemutator.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "Bodyshot Only/mutatorsmanager.lua"},
+		
+		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage", "script_path":"Deathmatch/mutatorscategorypage.lua"},
+		{"hook_id":"lib/mutators/basemutator", "script_path":"Deathmatch/basemutator.lua"},
+		{"hook_id":"lib/managers/mutatorsmanager", "script_path":"Deathmatch/mutatorsmanager.lua"},
+		{"hook_id":"lib/managers/group_ai_states/groupaistatebase", "script_path":"Deathmatch/function/groupaistatebase.lua"},
+		{"hook_id":"lib/units/player_team/teamaidamage", "script_path":"Deathmatch/function/teamaidamage.lua"},
+		{"hook_id":"lib/managers/mission/elementlootbag", "script_path":"Deathmatch/function/elementlootbag.lua"},
+		{"hook_id":"lib/managers/mission/elementspawncivilian", "script_path":"Deathmatch/function/elementspawncivilian.lua"},
+		{"hook_id":"lib/managers/mission/elementspawnciviliangroup", "script_path":"Deathmatch/function/elementspawnciviliangroup.lua"},
+		{"hook_id":"lib/managers/mission/elementspawnenemydummy", "script_path":"Deathmatch/function/elementspawnenemydummy.lua"},
+		{"hook_id":"core/lib/managers/mission/coremissionscriptelement", "script_path":"Deathmatch/function/coremissionscriptelement.lua"},
+		{"hook_id":"lib/managers/mission/elementplayerspawner", "script_path":"Deathmatch/function/elementplayerspawner.lua"},
+		{"hook_id":"lib/network/handlers/unitnetworkhandler", "script_path":"Deathmatch/function/unitnetworkhandler.lua"},
+		{"hook_id":"lib/managers/localizationmanager", "script_path":"Deathmatch/function/killunit.lua"},
+		
+		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage", "script_path":"Teleport Enemy/mutatorscategorypage.lua"},
+		{"hook_id":"lib/mutators/basemutator", "script_path":"Teleport Enemy/basemutator.lua"},
+		{"hook_id":"lib/managers/mutatorsmanager", "script_path":"Teleport Enemy/mutatorsmanager.lua"},
+		{"hook_id" : "lib/units/enemies/cop/copmovement", "script_path" : "Teleport Enemy/copmovement.lua"},
+		
+		{"hook_id":"lib/managers/localizationmanager", "script_path":"Hardline Breakout/function/move.lua"},
+		{"hook_id":"lib/managers/dialogmanager", "script_path":"Hardline Breakout/function/missionrunner.lua"},
+		{"hook_id":"lib/managers/missionmanager", "script_path":"Hardline Breakout/function/missionnow.lua"},
+		{"hook_id":"lib/mutators/basemutator","script_path":"Hardline Breakout/basemutator.lua"},
+		{"hook_id":"lib/managers/mutatorsmanager","script_path":"Hardline Breakout/mutatorsmanager.lua"},
+		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage","script_path":"Hardline Breakout/mutatorscategorypage.lua"},
+		
+		{"hook_id" : "lib/units/enemies/cop/copdamage", "script_path" : "Headshot Only/function/copdamage.lua"},
+		{"hook_id" : "lib/managers/menu/pages/mutatorscategorypage", "script_path" : "Headshot Only/mutatorscategorypage.lua"},
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "Headshot Only/basemutator.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "Headshot Only/mutatorsmanager.lua"},
+		
+		{"hook_id" : "lib/managers/menu/pages/mutatorscategorypage", "script_path" : "Huge Punch/mutatorscategorypage.lua"},
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "Huge Punch/basemutator.lua"},
+		{"hook_id" : "lib/units/beings/player/playerdamage", "script_path" : "Huge Punch/playerdamage.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "Huge Punch/mutatorsmanager.lua"},
+		
+		{"hook_id":"lib/mutators/mutatorhydra", "script_path":"Hydra Plus/function/mutatorhydra.lua"},
+		
+		{"hook_id" : "lib/managers/menu/pages/mutatorscategorypage", "script_path" : "I want to be bulldozer/mutatorscategorypage.lua"},
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "I want to be bulldozer/basemutator.lua"},
+		{"hook_id" : "lib/mutators/mutatorenemyhealth", "script_path" : "I want to be bulldozer/mutatorenemyhealth.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "I want to be bulldozer/mutatorsmanager.lua"},
+		
+		{"hook_id" : "lib/managers/localizationmanager", "script_path" : "Professional/add_prof.lua"},
+		{"hook_id" : "lib/managers/menu/pages/mutatorscategorypage", "script_path" : "Professional/mutatorscategorypage.lua"},
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "Professional/basemutator.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "Professional/mutatorsmanager.lua"},
+		
+		{"hook_id":"lib/units/enemies/medic/medicdamage", "script_path":"Quick-Fix/function/medicdamage.lua"},
+		{"hook_id":"lib/mutators/basemutator","script_path":"Quick-Fix/basemutator.lua"},
+		{"hook_id":"lib/managers/mutatorsmanager","script_path":"Quick-Fix/mutatorsmanager.lua"},
+		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage","script_path":"Quick-Fix/mutatorscategorypage.lua"},
+		
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "Randomizer/basemutator.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "Randomizer/mutatorsmanager.lua"},
+		{"hook_id" : "lib/managers/menu/pages/mutatorscategorypage", "script_path" : "Randomizer/mutatorscategorypage.lua"},
+		{"hook_id" : "lib/managers/blackmarketmanager", "script_path" : "Randomizer/blackmarketmanager.lua"},
+		
+		{"hook_id":"lib/units/enemies/cop/copdamage", "script_path":"Rationing/function/copdamage.lua"},
+		{"hook_id":"lib/mutators/basemutator","script_path":"Rationing/basemutator.lua"},
+		{"hook_id":"lib/managers/mutatorsmanager","script_path":"Rationing/mutatorsmanager.lua"},
+		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage","script_path":"Rationing/mutatorscategorypage.lua"},
+		
+		{"hook_id" : "lib/managers/localizationmanager", "script_path" : "Realism/sync.lua"},
+		{"hook_id":"lib/managers/hudmanagerpd2", "script_path":"Realism/Hooks/HUDManagerPD2.lua"},
+		{"hook_id" : "lib/managers/hudmanager", "script_path" : "Realism/Hooks/HUDManager.lua"},
+		{"hook_id" : "lib/units/contourext", "script_path" : "Realism/Hooks/ContourExt.lua"},
+		{"hook_id" : "lib/units/interactions/interactionext", "script_path" : "Realism/Hooks/InteractionExt.lua"},
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "Realism/basemutator.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "Realism/mutatorsmanager.lua"},
+		
+		{"hook_id" : "lib/mutators/mutatorenemyreplacer", "script_path" : "Sniper Rush/mutatorenemyreplacer.lua"},
+		{"hook_id" : "lib/managers/menumanager", "script_path" : "Sniper Rush/menumanager.lua"},
+		
+		{"hook_id" : "lib/managers/localizationmanager", "script_path" : "Zero Down/tmp_mutator_saving.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "Zero Down/tmp_mutator_saving.lua"},
+		{"hook_id" : "lib/managers/menu/pages/mutatorscategorypage", "script_path" : "Zero Down/mutatorscategorypage.lua"},
+		{"hook_id" : "lib/managers/group_ai_states/groupaistatebase", "script_path" : "Zero Down/groupaistatebase.lua"},
+		{"hook_id" : "lib/units/player_team/teamaidamage", "script_path" : "Zero Down/teamaidamage.lua"},
+		{"hook_id" : "lib/mutators/basemutator", "script_path" : "Zero Down/basemutator.lua"},
+		{"hook_id" : "lib/managers/mutatorsmanager", "script_path" : "Zero Down/mutatorsmanager.lua"}
+	]
+}
