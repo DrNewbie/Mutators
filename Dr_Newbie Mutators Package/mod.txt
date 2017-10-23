@@ -2,7 +2,7 @@
 	"name" : "Dr_Newbie Mutators Package",
 	"description" : " ",
 	"author" : "Dr_Newbie",
-	"contact" : " ",
+	"contact" : "http://modwork.shop/17973",
 	"version" : "1",
 	"priority": 1000,
 	"blt_version": 2,
@@ -70,7 +70,7 @@
 		{"hook_id":"lib/managers/menu/pages/mutatorscategorypage", "script_path":"Teleport Enemy/mutatorscategorypage.lua"},
 		{"hook_id":"lib/mutators/basemutator", "script_path":"Teleport Enemy/basemutator.lua"},
 		{"hook_id":"lib/managers/mutatorsmanager", "script_path":"Teleport Enemy/mutatorsmanager.lua"},
-		{"hook_id" : "lib/units/enemies/cop/copmovement", "script_path" : "Teleport Enemy/copmovement.lua"},
+		{"hook_id" : "lib/units/enemies/cop/copmovement", "script_path" : "Teleport Enemy/function/copmovement.lua"},
 		
 		{"hook_id":"lib/managers/localizationmanager", "script_path":"Hardline Breakout/function/move.lua"},
 		{"hook_id":"lib/managers/dialogmanager", "script_path":"Hardline Breakout/function/missionrunner.lua"},

@@ -1,7 +1,7 @@
 <table name="Mutators - Over Dozer Plus">
 	<Localization directory="Loc" default="en.txt"/>
 	<GlobalValue id="MutatorsOverDozerPlus" color="Color(1, 0.5, 0)"/>
-    <Hooks directory="Hooks">
+    <Hooks directory="Over Dozer Plus/Hooks">
        <hook file="lua/mutatorshielddozers.lua" source_file="lib/mutators/mutatorshielddozers"/>
        <hook file="lua/mutatorenemyreplacer.lua" source_file="lib/mutators/mutatorenemyreplacer"/>
        <hook file="lua/copbase.lua" source_file="lib/units/enemies/cop/copbase"/>

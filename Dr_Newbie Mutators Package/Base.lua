@@ -1,11 +1,10 @@
 if not ModCore then
-	log("[ERROR][Holo] BeardLib is not installed!")
+	log("[ERROR] BeardLib is not installed!")
 	return
 end
 
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
-if RequiredScript == "lib/managers/localizationmanager" then
 	TMP_mutator_saving.ModPath = ModPath
 	TMP_mutator_saving.SaveFile = TMP_mutator_saving.SaveFile or SavePath .. "tmp_mutator_saving.txt"
 	TMP_mutator_saving.data = TMP_mutator_saving.data or {}
@@ -78,26 +77,40 @@ if RequiredScript == "lib/managers/localizationmanager" then
 			mutator:setup(mm)
 		end
 	end
-end
 
-if RequiredScript == "lib/managers/mutatorsmanager" then
-	Hooks:PostHook(MutatorsManager, "set_enabled", "TMP_mutator_saving_set_enabled", function(mm, ...)
+	Hooks:PostHook(MutatorsManager, "set_enabled", "TMP_mutator_saving_set_enabled", function()
 		TMP_mutator_saving:Pre_Save()
-	end )
-end
-
-Hooks:Add("MenuManagerOnOpenMenu", "TMP_mutator_saving_MenuManagerOnOpenMenu", function(menu_manager, menu, ...)
-	if menu == "menu_main" then
+	end)
+	
+	Hooks:PostHook(MutatorsManager, "reset_to_default", "TMP_mutator_saving_reset_to_default", function()
 		TMP_mutator_saving:Pre_Save()
-	end
-end)
+	end)
 
-if TMP_mutator_saving:Is_This_Enable("MutatorBankspook") then
+	Hooks:Add("MenuManagerOnOpenMenu", "TMP_mutator_saving_MenuManagerOnOpenMenu", function(menu_manager, menu, ...)
+		if menu == "menu_main" or menu == "crime_spree_lobby" or menu == "lobby" then
+			TMP_mutator_saving:Pre_Save()
+			if UpdateThisMod then
+				UpdateThisMod:Add({
+					mod_id = 'Dr_Newbie Mutators Package',
+					data = {
+						modworkshop_id = 17973,
+						dl_url = 'https://github.com/DrNewbie/BotArmorSkins/raw/master/Bot%20Armor%20Skins.zip',
+						info_url = 'https://raw.githubusercontent.com/DrNewbie/Mutators/master/Dr_Newbie%20Mutators%20Package/mod.txt'
+					}
+				})
+			end
+		end
+	end)
+
+if TMP_mutator_saving.data["MutatorBankspook"] then
 	ModCore:new(ModPath .. "Bankcloaker/Bankspook/Main.xml", false, true):init_modules()
+	log("[Mutators] 'MutatorBankspook' is installed!")
 end
 
-if TMP_mutator_saving:Is_This_Enable("MutatorBobdozer") then
+if TMP_mutator_saving.data["MutatorBobdozer"] then
 	ModCore:new(ModPath .. "Bobdozer/Bobdozer/Main.xml", false, true):init_modules()
+	log("[Mutators] 'MutatorBobdozer' is installed!")
 end
 
 ModCore:new(ModPath .. "Over Dozer Plus/Main.xml", false, true):init_modules()
+log("[Mutators] 'Over Dozer Plus' is installed!")
