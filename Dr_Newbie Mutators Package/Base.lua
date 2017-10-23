@@ -94,7 +94,7 @@ _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 					mod_id = 'Dr_Newbie Mutators Package',
 					data = {
 						modworkshop_id = 17973,
-						dl_url = 'https://github.com/DrNewbie/BotArmorSkins/raw/master/Bot%20Armor%20Skins.zip',
+						dl_url = 'https://github.com/DrNewbie/Mutators/raw/master/Dr_Newbie%20Mutators%20Package.zip',
 						info_url = 'https://raw.githubusercontent.com/DrNewbie/Mutators/master/Dr_Newbie%20Mutators%20Package/mod.txt'
 					}
 				})
