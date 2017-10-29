@@ -93,7 +93,7 @@ _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 				UpdateThisMod:Add({
 					mod_id = 'Dr_Newbie Mutators Package',
 					data = {
-						modworkshop_id = "Dr_NewbieMutatorsPackage_17973",
+						modworkshop_id = 17973,
 						dl_url = 'https://drnewbie.github.io/Mutators/Dr_Newbie%20Mutators%20Package.zip',
 						info_url = 'https://drnewbie.github.io/Mutators/Dr_Newbie%20Mutators%20Package/mod.txt'
 					}
