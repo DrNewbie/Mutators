@@ -3,7 +3,7 @@
 	"description" : " ",
 	"author" : "Dr_Newbie",
 	"contact" : "http://modwork.shop/17973",
-	"version" : "6.1",
+	"version" : "6.2",
 	"priority": 1000,
 	"blt_version": 2,
 	"libraries" : [
@@ -20,7 +20,7 @@
 	"updates" :
 	[
 		{
-			"identifier" : 17973
+			"identifier" : "Dr_NewbieMutatorsPackage_17973"
 		}
 	],
 	"hooks" :
