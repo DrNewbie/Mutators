@@ -1,9 +1,13 @@
+if Network:is_server() and not Global.game_settings.single_player then
+	return
+end
+
 _G.TMP_mutator_saving = _G.TMP_mutator_saving or {}
 
 _G._WTF_Fly_Enemy_Index = _G._WTF_Fly_Enemy_Index or 0
 
 if not TMP_mutator_saving:Is_This_Enable("MutatorFlyingEnemy", MutatorFlyingEnemy) then
-
+	return
 end
 
 Hooks:PostHook(CopMovement, "post_init", "CopMovement_post_init_WTF_Fly_Enemy", function(self, ...)
