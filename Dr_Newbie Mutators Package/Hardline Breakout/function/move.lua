@@ -11,8 +11,8 @@ end
 
 local _t_delay = 0
 local _fire_date = {}
-local _frag = tweak_data.blackmarket:get_index_from_projectile_id("frag")
-local _rocket_frag = tweak_data.blackmarket:get_index_from_projectile_id("rocket_frag")
+local _frag = "frag"
+local _rocket_frag = "rocket_frag"
 
 Hooks:Add("GameSetupUpdate", "HLBODGameSetupUpdate", function(t, dt)
 	 local rand_vector3_use = function(hlbo, t, fire_set)
