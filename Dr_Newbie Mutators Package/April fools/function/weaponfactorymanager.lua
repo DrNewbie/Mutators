@@ -24,11 +24,12 @@ function WeaponFactoryManager:_get_forced_parts(factory_id)
 	return tweak_data.weapon.factory[factory_id].forced_parts or {}
 end
 
-function WeaponFactoryManager:_add_parts(p_unit, factory_id, factory_weapon, blueprint, forbidden, third_person, done_cb, skip_queue)
+function WeaponFactoryManager:_add_parts(p_unit, factory_id, factory_weapon, blueprint, forbidden, third_person, npc, done_cb, skip_queue)
 	self._tasks = self._tasks or {}
 	local parts = {}
 	local need_parent = {}
 	local override = self:_get_override_parts(factory_id, blueprint)
+
 	for _, forced_id in ipairs(self:_get_forced_parts(factory_id)) do
 		local replaced = false
 		local exists = false
@@ -49,45 +50,54 @@ function WeaponFactoryManager:_add_parts(p_unit, factory_id, factory_weapon, blu
 			table.insert(blueprint, forced_id)
 		end
 	end
+	
 	if self._uses_tasks and not skip_queue then
 		table.insert(self._tasks, {
+			need_parent_i = 1,
+			blueprint_i = 1,
 			done_cb = done_cb,
 			p_unit = p_unit,
 			factory_id = factory_id,
 			blueprint = blueprint,
-			blueprint_i = 1,
 			forbidden = forbidden,
 			third_person = third_person,
+			npc = npc,
 			parts = parts,
 			need_parent = need_parent,
-			need_parent_i = 1,
 			override = override
 		})
 	else
-		local async_task_data
+		local async_task_data = nil
+
 		if self._uses_streaming then
 			async_task_data = {
+				spawn = true,
 				third_person = third_person,
+				npc = npc,
 				parts = parts,
 				done_cb = done_cb,
-				blueprint = blueprint,
-				spawn = true
+				blueprint = blueprint
 			}
 			self._async_load_tasks = self._async_load_tasks or {}
 			self._async_load_tasks[async_task_data] = true
 		end
+
 		for _, part_id in ipairs(blueprint) do
 			self:_add_part(p_unit, factory_id, part_id, forbidden, override, parts, third_person, need_parent, async_task_data)
 		end
+
 		for _, part_id in ipairs(need_parent) do
 			self:_add_part(p_unit, factory_id, part_id, forbidden, override, parts, third_person, need_parent, async_task_data)
 		end
+
 		if async_task_data then
 			async_task_data.all_requests_sent = true
+
 			self:clbk_part_unit_loaded(async_task_data, false, Idstring(), Idstring())
 		else
 			done_cb(parts, blueprint)
 		end
 	end
+
 	return parts, blueprint
 end

@@ -3,20 +3,9 @@
 	"description" : " ",
 	"author" : "Dr_Newbie",
 	"contact" : "http://modwork.shop/17973",
-	"version" : "8",
+	"version" : "9",
 	"priority": 1000,
 	"blt_version": 2,
-	"libraries" : [
-		{
-			"display_name" : "Announcer",
-			"identifier" : "ANCR",
-			"optional" : "false"
-		},
-		{  
-			"display_name":"BeardLib",
-			"identifier":"beardlib"
-		}
-	],
 	"hooks" :
 	[
 		{"hook_id": "lib/managers/localizationmanager", "script_path": "Base.lua"},
