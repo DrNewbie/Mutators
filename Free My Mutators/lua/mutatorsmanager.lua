@@ -3,4 +3,4 @@ Hooks:PostHook(MutatorsManager, "init", "FreeMyMutators_MutatorsManager_init", f
 		mutator.disables_achievements = false
 		mutator.reductions = {money = 0, exp = 0}
 	end
-end )
+end)
