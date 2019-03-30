@@ -3,7 +3,7 @@
   "description": " ",
   "author": "Dr_Newbie",
   "contact": "http://modwork.shop/17973",
-  "version": "10",
+  "version": "11",
   "priority": 1000,
   "blt_version": 2,
   "hooks": [
@@ -204,8 +204,8 @@
     {
       "identifier": "DrNewbieMutatorsPackageGitHubUpdate",
       "host": {
-        "meta": "https://drnewbie.github.io/Mutators/Dr_Newbie%20Mutators%20Package.meta.json",
-        "download": "https://drnewbie.github.io/Mutators/Dr_Newbie%20Mutators%20Package.zip",
+        "meta": "https://drnewbie.github.io/Mutators/DrNewbieMutatorsPackage.meta.json",
+        "download": "https://drnewbie.github.io/Mutators/DrNewbieMutatorsPackage.zip",
         "patchnotes": "https://github.com/DrNewbie/Mutators/commits/master"
       }
     }
