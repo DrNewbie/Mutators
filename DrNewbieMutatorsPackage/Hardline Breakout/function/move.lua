@@ -15,7 +15,7 @@ local _frag = "frag"
 local _rocket_frag = "rocket_frag"
 
 Hooks:Add("GameSetupUpdate", "HLBODGameSetupUpdate", function(t, dt)
-	 local rand_vector3_use = function(hlbo, t, fire_set)
+	local rand_vector3_use = function(hlbo, t, fire_set)
 		local pos
 		local result = {}
 		local use_v3_list = {}
@@ -67,5 +67,6 @@ Hooks:Add("GameSetupUpdate", "HLBODGameSetupUpdate", function(t, dt)
 		end
 	end
 end)
-
-tweak_data.blackmarket.projectiles.rocket_frag.time_cheat = 0.1
+if TMP_mutator_saving:Is_This_Enable("MutatorHardlineBreakout", MutatorHardlineBreakout) then
+	tweak_data.blackmarket.projectiles.rocket_frag.time_cheat = 0.1
+end

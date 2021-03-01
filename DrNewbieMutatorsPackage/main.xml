@@ -1,0 +1,8 @@
+<table name="Dr_Newbie Mutators Package">
+	<AssetUpdates id="Dr_Newbie Mutators Package" version="14">
+        <custom_provider 
+			version_api_url="https://drnewbie.github.io/Mutators/Version.txt" 
+			download_url="https://drnewbie.github.io/Mutators/DrNewbieMutatorsPackage.zip"
+		/>
+    </AssetUpdates>
+</table>
